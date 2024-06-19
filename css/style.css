@@ -1,0 +1,32 @@
+/* ***********************REGOLE GENERALI********************** */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ************REGOLE MAIN***************** */
+main{
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+section{
+   display: flex;
+   /* debug */
+   background-color: blueviolet;
+   min-height: 500px;
+}
+
+#img_big{
+    width: 80%;
+    /* dubug */
+    border: 1px solid black;
+}
+
+#thumb{
+    width: 20%;
+    /* dubug */
+    border: 1px solid black;
+}
