@@ -5,6 +5,12 @@
     box-sizing: border-box;
 }
 
+img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
 /* ************REGOLE MAIN***************** */
 main{
     width: 80%;
@@ -12,7 +18,7 @@ main{
     padding: 50px;
 }
 
-section{
+.flex_cont{
    display: flex;
    /* debug */
    background-color: blueviolet;
@@ -29,4 +35,30 @@ section{
     width: 20%;
     /* dubug */
     border: 1px solid black;
+}
+
+.row{
+    height: 20%;
+    cursor: pointer;
+    /* debug */
+    border: 1px solid black;
+}
+
+/* ***********REGOLE THUMB****************** */
+
+.fa-solid{
+    color: white;
+    font-size: 25px;
+    margin-left: 45%;
+    cursor: pointer;
+    
+}
+
+.fa-circle-arrow-down{
+    margin-top: 60px;
+}
+
+.fa-circle-arrow-up{
+    margin-top: 10px;
+
 }
