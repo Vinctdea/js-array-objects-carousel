@@ -74,6 +74,10 @@ for (let index = 0; index < immagini.length; index++) {
     }       
 }
 
+// Milestone 2:
+// Aggiungere il **ciclo infinito** del carosello. Ovvero se la miniatura attiva è la prima e l’utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l’ultima e viceversa per l’ultima miniatura se l’utente clicca la freccia verso sinistra
+
+
 //variabili click 
 const btnUp = document.getElementById("btn_up");
 const btnDown = document.getElementById("btn_down");
@@ -84,26 +88,8 @@ console.log(items);
 
 //click down
 let contaClick = 0 ;
-btnDown.addEventListener("click",
-    function(){
-        if(contaClick < items.length -1){
-            items[contaClick].classList.add("none");
-            itemsThumb[contaClick].classList.remove("border"); 
-            items[contaClick+1].classList.remove("none");
-            itemsThumb[contaClick+1].classList.add("border");
-
-
-            contaClick++;
-        }   else{
-            items[contaClick].classList.add("none");
-            itemsThumb[contaClick].classList.remove("border");
-            items[0].classList.remove("none");
-            itemsThumb[0].classList.add("border");
-            contaClick = 0;
-        } 
-        
-        console.log(contaClick);
-    }
+btnDown.addEventListener("click",setInterval (clickDown,3000)
+    
 );
 
 
@@ -133,10 +119,6 @@ btnUp.addEventListener("click",
 
 )
 
-// Milestone 2:
-// Aggiungere il **ciclo infinito** del carosello. Ovvero se la miniatura attiva è la prima e l’utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l’ultima e viceversa per l’ultima miniatura se l’utente clicca la freccia verso sinistra
-
-
 // BONUS 1:
 // Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
 
@@ -149,3 +131,30 @@ btnUp.addEventListener("click",
 
 // BONUS 3:
 // Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.
+
+
+////////FUNZIONI
+
+// TIMER
+function clickDown(){
+    
+        if(contaClick < items.length -1){
+            items[contaClick].classList.add("none");
+            itemsThumb[contaClick].classList.remove("border"); 
+            items[contaClick+1].classList.remove("none");
+            itemsThumb[contaClick+1].classList.add("border");
+
+
+            contaClick++;
+        }   else{
+            items[contaClick].classList.add("none");
+            itemsThumb[contaClick].classList.remove("border");
+            items[0].classList.remove("none");
+            itemsThumb[0].classList.add("border");
+            contaClick = 0;
+        }
+        
+        console.log(contaClick);
+    
+
+}
