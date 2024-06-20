@@ -34,8 +34,8 @@ const immagini = [
     // ciclo per generare gli elementi
 for (let index = 0; index < immagini.length; index++) {
     let element = immagini[index];
-    console.log(immagini);
-    console.log(element.image);
+    // console.log(immagini);
+    // console.log(element.image);
 
     if(index === 0){
         flexCont.innerHTML += `                
@@ -71,29 +71,67 @@ for (let index = 0; index < immagini.length; index++) {
                     <img src="${element.image}" alt="${element.title}">
                 </div>
             `;
-
-    }
-
-        
+    }       
 }
 
 //variabili click 
 const btnUp = document.getElementById("btn_up");
 const btnDown = document.getElementById("btn_down");
+const items = document.getElementsByClassName("cont");
+const itemsThumb = document.getElementsByClassName("row");
+
+console.log(items);
 
 //click down
-let contaClick =0;
+let contaClick = 0 ;
 btnDown.addEventListener("click",
     function(){
-        contaClick++
-        if(contaClick ===1){
-            
-        }
+        if(contaClick < items.length -1){
+            items[contaClick].classList.add("none");
+            itemsThumb[contaClick].classList.remove("border"); 
+            items[contaClick+1].classList.remove("none");
+            itemsThumb[contaClick+1].classList.add("border");
 
+
+            contaClick++;
+        }   else{
+            items[contaClick].classList.add("none");
+            itemsThumb[contaClick].classList.remove("border");
+            items[0].classList.remove("none");
+            itemsThumb[0].classList.add("border");
+            contaClick = 0;
+        } 
+        
+        console.log(contaClick);
     }
 );
 
 
+//click up
+
+btnUp.addEventListener("click",
+    function(){
+        console.log(contaClick);
+        if(contaClick === 0 ){
+            items[contaClick].classList.add("none");
+            itemsThumb[contaClick].classList.remove("border");
+            items[items.length-1].classList.remove("none");
+            itemsThumb[items.length-1].classList.add("border");
+            contaClick = items.length-1;
+            console.log(contaClick);
+        } else if(contaClick <= items.length){
+
+
+            
+            items[contaClick].classList.add("none");
+            itemsThumb[contaClick].classList.remove("border");
+            items[contaClick-1].classList.remove("none");
+            itemsThumb[contaClick-1].classList.add("border");
+            contaClick--;
+        }
+    }
+
+)
 
 // Milestone 2:
 // Aggiungere il **ciclo infinito** del carosello. Ovvero se la miniatura attiva è la prima e l’utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l’ultima e viceversa per l’ultima miniatura se l’utente clicca la freccia verso sinistra
